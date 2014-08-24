@@ -1,0 +1,80 @@
+@import 'bootstrap.css';
+@import 'bootstrap-theme.css';
+@import 'bootstrap.min.css';
+@import 'bootstrap-theme.min.css';
+
+/*CSS for Body  */
+.container{
+    padding-top: 5%;
+}
+
+#homepage{
+    background-image: url("http://localhost/runathon/img/runathon_bg.jpg") ;
+    background-repeat: repeat;
+    color: #999;
+    overflow-y:scroll;
+    margin: 0 auto;
+    clear:both;
+}
+.panel-header{
+    color: #f34441;
+}
+
+a:hover, a:active{
+    background-color : #f34441;
+    color: #FFF;
+    text-decoration:none;
+}
+
+/*CSS for Navigation Bar */
+
+.navHeaderCollapse{
+    margin-top: 1%;
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #f34441;
+    color: #EEE;
+}
+
+.nav-pills li a:hover{
+    background-color: #f34441;
+    color: #EEE;
+}
+
+#myCarousel img
+{
+    margin-top: 4.55%;
+    width:100%;
+}
+
+#maincontent{
+    margin-top: .5%;
+}
+#sidebar{
+    margin-top: .5%;
+    margin-left: 0%;
+    padding-left: 0%;
+
+}
+.panel-body{
+    padding-top: 0%;
+ }
+
+
+/* CSS for Footer */
+
+footer{
+    background-color: #222;
+    color: #eee;
+    padding-top:1%;
+
+}
+
+.sitemap li{
+    color: #eee;
+    padding: 1%;
+}
+
+.sitemap li a{
+    color: #eee;
+}
