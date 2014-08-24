@@ -35,6 +35,7 @@ var $logged_in;
         $data['logged_in']=$this->logged_in;
         $this->load->view('header',$data);
         $data['column_info']=$this->retrive_data->retriveColumn($column_id);
+        $data['column_content']=file_get_contents("C:\\xampp\\htdocs\\runathon\\columns\\".$data['column_info']->row()->content);
         $this->load->view('column_home',$data);
 
         $current_date=date("Y-m-d H:i:s");

@@ -14,7 +14,7 @@
                     <h3>Upcoming Events</h3>
                 </div>
                 <?php foreach($upcoming_events as $row) {?>
-                    <a href="<?php base_url()?>index.php/home/viewColumn/<?php echo $row->event_id?>"><?php echo $row->header ?></a><br/>
+                    <a href="<?php echo base_url()?>index.php/home/viewColumn/<?php echo $row->event_id?>"><?php echo $row->header ?></a><br/>
                 <?php }?>
             </div>
         </div>
@@ -28,7 +28,7 @@
                     <h3>Famous Columns</h3>
                 </div>
                 <?php foreach($famous_columns as $row) {?>
-                    <a href="<?php base_url()?>index.php/home/viewColumn/<?php echo $row->column_id?>"><?php echo $row->header ?></a><br/>
+                    <a href="<?php echo base_url()?>index.php/home/viewColumn/<?php echo $row->column_id?>"><?php echo $row->header ?></a><br/>
                 <?php }?>
             </div><!-- end panel body -->
         </div><!-- end panel-->
