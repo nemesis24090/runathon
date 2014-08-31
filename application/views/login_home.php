@@ -6,112 +6,44 @@
  * Time: 2:16 PM
  */?>
 
-
+<div class="container">
 <div class="modal fade" id="loginModal">
     <div class="modal-dialog">
         <div class="modal-content">
+
             <div class="modal-header">
                 <button class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">CONNECT WITH US</h4>
             </div><!--login Modal Header end-->
-            <div class="modal-body">
+            <div class="modal-body col-lg-12" style="background-color: white">
                 <!--Login Screen-->
-                <div class="login_screen">
+                <div class="login_screen col-lg-6 text-center" style="padding-top: 13%;border-right: 2px solid rgb(211, 209, 209);padding-bottom: 9%;">
                     <a href="#" class="btn btn-large btn-primary">Connect with Facebook</a><br><br>
                     <a href="#" class="btn btn-large btn-danger">Connect with Google +</a><br><br>
-                    <div class="text-muted">
-                        <span>Or use your Email address</span>
-                    </div><br>
-                    <div class="">
-                        <button href="#" id="login_form" class="btn btn-danger">LOGIN</button>
-                        <button href="#" id="register_form" class="btn btn-default">SIGN UP</button>
+
+                </div><!--Login-Screen ends-->
+
+                <div class="col-lg-6">
+                    <form class="login_form" action="<?php echo base_url()?>index.php/login/submitLogin" method="post">
+                    <h2 class="form-signin-heading">Sign in Here</h2>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" class="form-control" id="userid" placeholder="Email id" name="user_id" value="<?php echo set_value('user'); ?>">
                     </div>
-                </div><!--Login-Screen ends
-
-<!-- Username & Password Login form -->
-                <div class="user_login">
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <div class="col-lg-12">
-                                <label class="" for="inputEmail">Email ID/ Username</label>
-                            </div>
-                            <div class="col-lg-12">
-                                <input class="form-control" id="inputEmail"  type="text" />
-                            </div>
-                        </div><!--end form group-->
-                        <div class="form-group">
-                            <div class="col-lg-12">
-                                <label class="" for="inputPassword">Password</label>
-                            </div>
-                            <div class="col-lg-12">
-                                <input class="form-control" id="inputPassword"  type="password" />
-                            </div>
-                        </div><!--end form group-->
-                        <div class="form-group">
-                            <div class="col-lg-12">
-                                <input id="remember" type="checkbox" />
-                                <label for="remember" class="text-muted">Remember me on this computer</label>
-                            </div>
-
-
-                        </div><!--end form group-->
-                        <div class="action_btns">
-                            <button href="#" id="backConnect" class="btn btn-default"> BACK</button>
-                            <button href="#" class="btn btn-danger">LOGIN</button>
-                        </div>
-
+                        <span class="validate_email alert-danger" role="alert"></span><br>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+                        <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                    </div>                        <span class="validate_pass alert-danger" role="alert"></span><br>
+                    <button class="btn btn-lg btn-block" type="submit">Sign in</button>
                     </form>
-
-                    <a href="#" class="">Forgot password?</a>
-                </div><!--user_login ends-->
-
-                <!-- Register Form -->
-                <div class="user_register">
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <div class="col-lg-12">
-                                <label class="" for="inputName">Full Name</label>
-                            </div>
-                            <div class="col-lg-12">
-                                <input class="form-control" id="inputName"  type="text" />
-                            </div>
-                        </div><!--end form group-->
-                        <div class="form-group">
-                            <div class="col-lg-12">
-                                <label class="" for="inputEmail">Email Address</label>
-                            </div>
-                            <div class="col-lg-12">
-                                <input class="form-control" id="inputEmail"  type="text" />
-                            </div>
-                        </div><!--end form group-->
-                        <div class="form-group">
-                            <div class="col-lg-12">
-                                <label class="" for="inputPassword">Password</label>
-                            </div>
-                            <div class="col-lg-12">
-                                <input class="form-control" id="inputPassword"  type="password" />
-                            </div>
-                        </div><!--end form group-->
-                        <div class="form-group">
-                            <div class="col-lg-12">
-                                <input id="remember" type="checkbox" />
-                                <label for="remember" class="text-muted">Send Occasional Updates</label>
-                            </div>
-                        </div><!--end form group-->
-                        <div class="action_btns">
-                            <button href="#" id="backConnect" class="btn btn-default"> BACK</button>
-                            <button href="#" class="btn btn-danger">REGISTER</button>
-                        </div>
-
-                        <!--<div class="modal-footer">
-                            <button href="#" id="backConnect" class="btn btn-default"> Back</button>
-                            <button href="#" class="btn btn-danger">Register</button>
-                        </div>-->
-
-                    </form>
-
-                </div><!--user_register ends-->
+                </div>
             </div><!--Login Modal Body end-->
+
+            <div class="modal-footer">
+                <a href="#forgotModal" role="button" data-toggle="modal">Forgot Password???</a> <br>
+                <a href="<?php echo base_url()?>index.php/login/loadSignUp" role="button" class="new" data-toggle="modal">New to Runathon SignUp Now</a>
+            </div>
         </div><!--loginModal content end-->
     </div><!--Login Modal dialog end-->
 

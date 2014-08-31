@@ -4,6 +4,11 @@
 @import 'bootstrap-theme.min.css';
 
 /*CSS for Body  */
+.comment-img{
+    width: 64px;
+    height:64px;
+}
+
 .container{
     padding-top: 5%;
 }
@@ -43,7 +48,6 @@ a:hover, a:active{
 
 #myCarousel img
 {
-    margin-top: 4.55%;
     width:100%;
 }
 
@@ -56,9 +60,6 @@ a:hover, a:active{
     padding-left: 0%;
 
 }
-.panel-body{
-    padding-top: 0%;
- }
 
 
 /* CSS for Footer */

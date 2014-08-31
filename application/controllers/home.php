@@ -15,6 +15,7 @@ var $logged_in;
 
     function index(){
         //after succesful login
+        if(($this->session->userdata("session_name") && $this->session->userdata("session_id"))){// check if user is logged in or not from session
         $this->logged_in="success";
         $data['title']="Rannathon";
         $data['logged_in']=$this->logged_in;
@@ -27,22 +28,14 @@ var $logged_in;
 
        $this->load->view('sidebar',$data);
        $this->load->view("footer",$data);
+        }
+        else
+            redirect("login");
     }
 
-    function viewColumn($column_id){
-        $this->logged_in="success";
-        $data['title']="Rannathon";
-        $data['logged_in']=$this->logged_in;
-        $this->load->view('header',$data);
-        $data['column_info']=$this->retrive_data->retriveColumn($column_id);
-        $data['column_content']=file_get_contents("C:\\xampp\\htdocs\\runathon\\columns\\".$data['column_info']->row()->content);
-        $this->load->view('column_home',$data);
-
-        $current_date=date("Y-m-d H:i:s");
-        $data['upcoming_events']=$this->retrive_data->upcomingEvents($current_date);
-        $data['famous_columns']=$this->retrive_data->famousColumns();
-
-        $this->load->view('sidebar',$data);
-        $this->load->view("footer",$data);
+    function logOut(){
+        $this->session->sess_destroy();
+        redirect(login);
     }
+
 }

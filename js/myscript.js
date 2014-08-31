@@ -26,7 +26,7 @@ $(function() {
         $(".modal-title").text('LOGIN');
         return false;
     });
-    backConnect
+
 
     // Calling Register Form
     $("#register_form").click(function(){
@@ -47,10 +47,10 @@ $(function() {
     });
 
 	//make menus drop automatically
-	$('ul.nav li.dropdown').hover(function() {
+	/*$('ul.nav li.dropdown').hover(function() {
 		$('.dropdown-menu', this).fadeIn();
 	}, function() {
 		$('.dropdown-menu', this).fadeOut('fast');
 	});//hover
-	
+	*/
 }); //jQuery is loaded
