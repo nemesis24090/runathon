@@ -42,26 +42,46 @@ class Login extends CI_Controller{
             $result=$this->retrive_data->loginCheck($_POST['user_id']);
 
                 if($result){
-                    if($result[0]->password == md5($_POST['password'])){
-                        $user_details=$this->retrive_data->userDetails($_POST['user_id']);
+                    if($result[0]->password == md5(trim($_POST['password']))){
+                        $user_details=$this->retrive_data->userDetails(trim($_POST['user_id']));
                         if($user_details[0]->profilepic==null)
                             $profile_pic="profile_default.png";
                         else
                             $profile_pic=$user_details[0]->profilepic;
-                        $sessiondata=array(
+                            $sessiondata=array(
                             "session_id" => 1,//change later
                             "session_name" => $_POST['user_id'],
                             "user_name" => $user_details[0]->name,
                             "profile_pic" => $profile_pic,
                             "last_login" => $user_details[0]->last_login,
-
+                            "contact" => $user_details[0]->contactno,
+                            "dob"=>$user_details[0]->dob,
                         );
                         $this->session->set_userdata($sessiondata);
                         redirect("home");
                     }
+                    else{
+                        $logged_in="failure";
+
+                        $data['logged_in']=$logged_in;
+                        $data['title']="Rannathon";
+                        $data['login_failure']=true;
+                        $data['message']="Invalid password";
+                        $this->load->view('header',$data);
+                        $this->load->view('loginPage',$data);
+                        $this->load->view('footer',$data);
+                    }
                 }
                 else{
+                    $logged_in="failure";
 
+                    $data['logged_in']=$logged_in;
+                    $data['title']="Rannathon";
+                    $data['message']="Invalid email id";
+                    $data['login_failure']="true";
+                    $this->load->view('header',$data);
+                    $this->load->view('loginPage',$data);
+                    $this->load->view('footer',$data);
                 }
             }
             else
@@ -73,7 +93,7 @@ class Login extends CI_Controller{
         $email_pattern="/^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})$/i";
         $logged_in="failure";
         //$alert="";
-        if(!preg_match($email_pattern,$_POST['email'])){
+        if(!preg_match($email_pattern,trim($_POST['email']))){
             $data['alert']="Please check the required field";
             $data['email']="Enter a Valid email";
             $data['title']="Rannathon";
@@ -82,7 +102,7 @@ class Login extends CI_Controller{
             $this->load->view('signUp',$data);
             $this->load->view("footer",$data);
         }
-        elseif(strlen($_POST["fullname"])==0){
+        elseif(strlen(trim($_POST["fullname"]))==0){
             $data['alert']="Please check the required field";
             $data['name']="Please provide ur name";
             $data['title']="Rannathon";
@@ -91,7 +111,7 @@ class Login extends CI_Controller{
             $this->load->view('signUp',$data);
             $this->load->view("footer",$data);
         }
-        elseif(strlen($_POST["password"])==0){
+        elseif(strlen(trim($_POST["password"]))==0){
             //$password="Provide some password";
             $data['alert']="Please check the required field";
 
@@ -103,7 +123,7 @@ class Login extends CI_Controller{
             $this->load->view("footer",$data);
         }
 
-        elseif($_POST["password"] != $_POST["confpass"]){
+        elseif(trim($_POST["password"]) != trim($_POST["confpass"])){
            // $confpass="Password dose not matches";
             $data['alert']="Please check the required field";
             $data['confpass']="Password dose not matches";
@@ -114,7 +134,7 @@ class Login extends CI_Controller{
             $this->load->view("footer",$data);
         }
 
-        elseif($this->checkEmail($_POST["email"])){
+        elseif($this->checkEmail(trim($_POST["email"]))){
             $data['alert']="Please check the required field";
             $data['email']="This email is already registered with us...";
             $data['title']="Rannathon";
@@ -124,9 +144,9 @@ class Login extends CI_Controller{
             $this->load->view("footer",$data);
         }
         else{
-            $insert['user_id']=$_POST['email'];
-            $insert['name']=$_POST['fullname'];
-            $insert['password']=md5($_POST['password']);
+            $insert['user_id']=trim($_POST['email']);
+            $insert['name']=trim($_POST['fullname']);
+            $insert['password']=md5(trim($_POST['password']));
             $result=$this->retrive_data->createUser($insert);
             if(!$result){
                 $data['alert']="Cannot connect databse please try later..";
@@ -158,7 +178,7 @@ class Login extends CI_Controller{
     }
 
     public function emailCheck(){
-       $result=$this->retrive_data->emailCheck($_POST["email"]);
+       $result=$this->retrive_data->emailCheck(trim($_POST["email"]));
         if($result)
             echo false;
         else

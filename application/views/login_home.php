@@ -6,7 +6,7 @@
  * Time: 2:16 PM
  */?>
 
-<div class="container">
+<div class="container container_edit">
 <div class="modal fade" id="loginModal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -28,7 +28,7 @@
                     <h2 class="form-signin-heading">Sign in Here</h2>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" class="form-control" id="userid" placeholder="Email id" name="user_id" value="<?php echo set_value('user'); ?>">
+                        <input type="text" class="form-control" id="userid" placeholder="Email id" name="user_id" value="">
                     </div>
                         <span class="validate_email alert-danger" role="alert"></span><br>
                     <div class="input-group">

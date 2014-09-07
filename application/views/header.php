@@ -20,7 +20,7 @@
 
     <div class="navbar navbar-inverse navbar-fixed-top " rol="navigation">
 
-            <a class="navbar-brand" href="">Runathon</a>
+            <a class="navbar-brand" href="<?php echo base_url()?>index.php/home">Runathon</a>
 
         <div class="nav-collapse navHeaderCollapse" id="navHeaderCollapse">
         <ul class="nav nav-pills navbar-right">
@@ -36,7 +36,7 @@
                             <span class="glyphicon glyphicon-user"></span> My Account
                             <strong class="caret"></strong></strong></a>
                         <ul class="dropdown-menu">
-                            <li><a href=""><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                            <li><a href="<?php echo base_url()?>index.php/home/profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
                             <li><a href=""><span class="glyphicon glyphicon-wrench"></span> My Settings</a></li>
                             <li><a href="<?php echo base_url()?>index.php/home/logOut"><span class="glyphicon glyphicon-off"></span> Sign Out</a></li>
                         </ul><!--end dropdown-->

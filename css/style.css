@@ -9,8 +9,17 @@
     height:64px;
 }
 
-.container{
+.container_edit{
     padding-top: 5%;
+}
+
+#links{
+    width: 21.3%;
+}
+
+
+.change_profile{
+    visibility: hidden;
 }
 
 #homepage{

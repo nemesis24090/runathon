@@ -6,7 +6,7 @@
  * Time: 8:10 PM
  */ ?>
 
-<div class="container" id="main">
+<div class="container container_edit" id="main">
 
 
 <div class="carousel slide" id="myCarousel">

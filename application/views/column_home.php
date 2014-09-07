@@ -6,7 +6,7 @@
  * Time: 2:50 PM
  */ ?>
 
-<div class="container" id="main">
+<div class="container container_edit" id="main">
 
     <div class="modal fade" id="loginModal">
         <div class="modal-dialog">

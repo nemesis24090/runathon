@@ -49,20 +49,38 @@
     $(document).ready(function(e){
        $(".comment-alert").hide();
        $(".like-alert").hide();
+        console.log($(".profile-pic").parent());
+       $('#links').offset({top:parseInt($(".profile-pic").height())+parseInt($(".profile-pic").offset().top),left:$(".profile-pic").offset().left});
     });
+
+    $(".cancel").click(function(e){
+        $(".modal").trigger("click");
+    });
+
+
+    $(".upload").click(function(){
+        console.log("test");
+        $(".change_profile_pic").trigger("click");
+        file_change=0;
+    });
+
+    function changePic(){
+        $("#change").trigger("click");
+        $('#links').css("visibility","hidden");
+    }
 
     $("#email").blur(function(e){
         if($("#email").val() != ""){
             jQuery.ajax({
                 type:"POST",
                 url:"<?php echo base_url()?>index.php/login/emailCheck",
-                data:"email="+$("#email").val(),
+                data:"email="+$("#email").val().trim(),
 
                 success:function($data){
                     console.log($data);
                     if($data == false){
                         e.target.style.borderColor="#B81B1B"
-                        e.target.val="";
+                        e.target.value="";
                         $( ".email_sign" ).text("Email is already registered with us").fadeOut( 10000 );
                     }
                     else{
@@ -75,25 +93,25 @@
 
     $(".sign_form").submit(function(e){
         var email_pattern=/^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})$/i;
-    console.log("out");
-        if(!(email_pattern.test($("#email").val()))){
+        console.log("out");
+        if(!(email_pattern.test($("#email").val().trim()))){
             console.log("in");
-            $( ".email_sign" ).text("Enter a valid email").fadeOut( 10000 );
+            $( ".email_sign" ).text("Enter a valid email").show().fadeOut( 10000 );
             e.preventDefault();
         }
 
-        else if($("#pass").val().length==0){
-            $(".password_sign").text("Please Provide a password").fadeOut( 10000 );
+        else if($("#pass").val().trim().length==0){
+            $(".password_sign").text("Please Provide a password").show().fadeOut( 10000 );
             e.preventDefault();
         }
 
-        else if($("#pass").val() != $("#confpass").val()){
-            $(".confpass_sign").text("Enter same as password field").fadeOut( 10000 );
+        else if($("#pass").val().trim() != $("#confpass").val().trim()){
+            $(".confpass_sign").text("Enter same as password field").show().fadeOut( 10000 );
             e.preventDefault();
         }
 
-        else if($("#fullname").val().length==0){
-            $(".name_sign").text("Please Provide ur name").fadeOut( 10000 );
+        else if($("#fullname").val().trim().length==0){
+            $(".name_sign").text("Please Provide ur name").show().fadeOut( 10000 );
             e.preventDefault();
         }
 
@@ -104,11 +122,11 @@
     $(".login_form" ).submit(function(e) {
         console.log($("#password").val().length);
         var pattern=/^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})$/i;
-        if (!pattern.test($("#userid").val())) {
+        if (!pattern.test($("#userid").val().trim())) {
             $( ".validate_email" ).text("Enter a valid email").show().fadeOut( 10000 );
             e.preventDefault();
         }
-        else if ($("#password").val().length==0 ){
+        else if ($("#password").val().trim().length==0 ){
             $( ".validate_pass" ).text("Enter a password").show().fadeOut( 10000 );
             e.preventDefault();
         }
@@ -117,6 +135,7 @@
 
     });
 
+    <?php if(isset($column_id)){?>
     $("#like_btn").click(function(e){
         <?php if(($this->session->userdata("session_name") && $this->session->userdata("session_id"))){ ?>
        if($(this).children()[0].className.trim()=="glyphicon glyphicon-thumbs-down"){
@@ -157,8 +176,10 @@
         $( ".like-alert" ).text("Please login to like this Column").show().fadeOut( 8000 );
         <?php } ?>
     });
+    <?php } ?>
 
 
+    <?php if(isset($column_id)){?>
     $("#comment_btn").click(function(e){
         <?php if(($this->session->userdata("session_name") && $this->session->userdata("session_id"))){ ?>
                 if($("#comment_content").val().length>0){
@@ -186,6 +207,45 @@
              $( ".comment-alert" ).text("Please login to comment").show().fadeOut( 8000 );
         <?php } ?>
     });
+    <?php } ?>
+
+    $(".profile-form").submit(function(e){
+        var email_pattern=/^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})$/i;
+        var contact=/^(\d*)$/;
+        if(!(email_pattern.test($("#email_profile").val().trim()))){
+            $( ".email_error" ).text("Enter a valid email").show().fadeOut( 6000 );
+            e.preventDefault();
+        }
+
+      /*  else if($("#pass").val().length==0){
+            $(".password_sign").text("Please Provide a password").fadeOut( 10000 );
+            e.preventDefault();
+        }
+        else if($("#pass").val() != $("#confpass").val()){
+            $(".confpass_sign").text("Enter same as password field").fadeOut( 10000 );
+            e.preventDefault();
+        }
+*/
+        else if($("#name_profile").val().trim().length==0){
+            $(".name_error").text("Please Provide ur name").show().fadeOut( 6000 );
+            e.preventDefault();
+        }
+
+        else if(!contact.test($("#contact").val().trim())){
+            $(".contact_error").text("Please Provide a proper contact no").show().fadeOut( 6000 );
+            e.preventDefault();
+        }
+
+        else if($("#contact").val().trim().length<10 && $("#contact").val().trim().length!=0){
+            $(".contact_error").text("Please Provide contact of size 10").show().fadeOut( 6000 );
+            e.preventDefault();
+        }
+
+
+        else
+            return;
+    });
+
 </script>
 
 </body>

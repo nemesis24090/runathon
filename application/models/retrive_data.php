@@ -81,7 +81,7 @@ class Retrive_data extends CI_Model{
     }
 
     function userDetails($user_id){
-        $query=$this->db->query("Select name,profilepic,lastlogin from user_details where user_id='$user_id'");
+        $query=$this->db->query("Select * from user_details where user_id='$user_id'");
 
         return $query->result();
     }
@@ -92,8 +92,21 @@ class Retrive_data extends CI_Model{
         return $query;
     }
 
+
     function updateUnlike($user_id,$column_id){
         $query=$this->db->query("delete from column_reviews where user_id='$user_id' and column_id='$column_id'");
+        return $query;
+    }
+
+    function updateUser($user_id,$update){
+        $query=$this->db->query("update user_details set user_id='$update[user_id]',name='$update[name]',contactno='$update[contact]',dob='$update[dob]' where user_id='$user_id'");
+
+        return $query;
+    }
+
+    function updateProfilePic($pic,$user_id){
+        $query=$this->db->query("update user_details set profilepic='$pic' where user_id='$user_id'");
+
         return $query;
     }
 }
