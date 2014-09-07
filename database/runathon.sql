@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 31, 2014 at 07:52 PM
+-- Generation Time: Sep 07, 2014 at 04:53 PM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -204,8 +204,8 @@ INSERT INTO `login_table` (`user_id`, `password`, `user_type`) VALUES
 CREATE TABLE IF NOT EXISTS `user_details` (
   `user_id` varchar(100) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
-  `contactno` int(10) DEFAULT NULL,
-  `dob` varchar(10) DEFAULT NULL,
+  `contactno` varchar(10) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
   `option` varchar(10) NOT NULL COMMENT 'Active/Disable',
   `profilepic` varchar(50) DEFAULT NULL COMMENT 'Path of Profile Pic',
   `lastlogin` varchar(10) DEFAULT NULL,
@@ -218,8 +218,8 @@ CREATE TABLE IF NOT EXISTS `user_details` (
 --
 
 INSERT INTO `user_details` (`user_id`, `name`, `contactno`, `dob`, `option`, `profilepic`, `lastlogin`) VALUES
-('cool.sagar2007@gmail.com', 'Sagar', NULL, NULL, 'A', NULL, NULL),
-('shettysagar2492@gmail.com', 'Sagar Shetty', 55995599, '19111989', 'A', NULL, NULL),
+('cool.sagar2007@gmail.com', 'Sagar', '9769141119', '2014-09-04', 'A', 'cool.sagar2007@gmail.com.jpg', NULL),
+('shettysagar2492@gmail.com', 'Sagar Shetty', '55995599', NULL, 'A', NULL, NULL),
 ('shettyshilpa@gmail.com', 'Shilpa', NULL, NULL, 'A', NULL, NULL),
 ('test1@abcd.xy', 'test1', NULL, NULL, 'A', NULL, NULL),
 ('test@abcd.xy', 'test', NULL, NULL, 'A', NULL, NULL);
