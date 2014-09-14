@@ -14,7 +14,7 @@
                     <h3>Upcoming Events</h3>
                 </div>
                 <?php foreach($upcoming_events as $row) {?>
-                    <a href="<?php echo base_url()?>index.php/home/viewColumn/<?php echo $row->event_id?>"><?php echo $row->header ?></a><br/>
+                    <a href="<?php echo base_url()?>index.php/event/viewEvent/<?php echo $row->event_id?>"><?php echo $row->header ?></a><br/>
                 <?php }?>
             </div>
         </div>

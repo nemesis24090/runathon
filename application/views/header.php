@@ -25,9 +25,9 @@
         <div class="nav-collapse navHeaderCollapse" id="navHeaderCollapse">
         <ul class="nav nav-pills navbar-right">
                     <li ><a href="<?php echo base_url()?>index.php/login">Home</a></li>
-                    <li><a href="">Events</a></li>
+                    <li><a href="<?php echo base_url();?>index.php/event">Events</a></li>
                     <li><a href="">Columns</a></li>
-                    <li><a href="">Contact Us</a></li>
+                    <li><a href="<?php echo base_url();?>index.php/home/show_contactus">Contact Us</a></li>
                     <?php if($logged_in=="failure"){?>
                     <li><a href="#loginModal" data-toggle="modal">Login</a></li>
                     <?php }

@@ -49,7 +49,13 @@ class Retrive_data extends CI_Model{
 
     function postComment($user_id,$content,$column_id,$time){
 
-        $query=$this->db->query("insert into column_comment values (NULL ,'$user_id','$column_id','$time','$content')");
+    $query=$this->db->query("insert into column_comment values (NULL ,'$user_id','$column_id','$time','$content')");
+
+    return $query;
+}
+    function postReview($user_id,$content,$event_id,$time,$rating){
+
+        $query=$this->db->query("insert into event_comment values (NULL ,'$user_id','$event_id','$time','$content', '$rating')");
 
         return $query;
     }
@@ -108,5 +114,68 @@ class Retrive_data extends CI_Model{
         $query=$this->db->query("update user_details set profilepic='$pic' where user_id='$user_id'");
 
         return $query;
+    }
+    function getEventDetails($timestap){
+       /* $query = $this->db->query("select event_id,header,timestamp, description,events
+                             from event_details");  */
+
+        $query = $this->db->query("SELECT event_review.event_id AS event_id,
+	                                header,
+                                    event_details.timestamp as timestamp,
+                                    description,
+                                    events,
+                                    location,
+	                                IFNULL(COUNT(DISTINCT event_review.review_id), 0) AS likes,
+                                    IFNULL(COUNT(DISTINCT event_comment.comment_id), 0) AS comments
+                                    FROM event_details
+                                    LEFT JOIN event_comment
+                                    ON event_comment.event_id= event_details.event_id
+                                    LEFT JOIN event_review
+                                    ON event_review.event_id = event_details.event_id
+                                    WHERE event_details.timestamp >'$timestap'
+                                    GROUP BY event_details.event_id
+                                    order by timestamp limit 5
+                                    ");
+
+
+
+
+        return $query->result();
+    }
+
+    function getEventInfo($event_id)
+    {
+        $query = $this->db->query("SELECT event_details.event_id AS event_id,
+	                                header,
+                                    event_details.timestamp as timestamp,
+                                    description,
+                                    events,
+                                    location,
+                                    content_filename,
+									IFNULL(COUNT(DISTINCT event_comment.comment_id), 0) AS total_comments,
+									IFNULL(ROUND(AVG(event_comment.rating),2), 0) AS rating
+                                    FROM event_details
+                                    LEFT JOIN event_comment
+                                    ON event_comment.event_id = event_details.event_id
+	                                WHERE event_details.event_id = $event_id
+                                    GROUP BY event_details.event_id");
+
+        return $query->row();
+    }
+
+    function getEventReviews($event_id)
+    {
+        $query = $this->db->query("	SELECT user_details.name,
+	                                event_comment.content,
+	                                event_comment.rating,
+	                                user_details.profilepic,
+	                                DATE_FORMAT(timestamp,'%d %b %Y') as timestamp
+	                                FROM user_details
+	                                LEFT JOIN event_comment
+	                                ON user_details.user_id = event_comment.user_id
+	                                WHERE event_comment.event_id = $event_id
+	                                ORDER BY timestamp desc");
+
+        return $query->result();
     }
 }

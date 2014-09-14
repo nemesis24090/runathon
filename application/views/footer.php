@@ -207,7 +207,42 @@
              $( ".comment-alert" ).text("Please login to comment").show().fadeOut( 8000 );
         <?php } ?>
     });
+    <?php }?>
+
+
+    /*Code for Event Review Starts Here*/
+    <?php if(isset($event_info)){?>
+    $("#review_submitbtn").click(function(e){
+        alert("HI");
+        <?php if(($this->session->userdata("session_name") && $this->session->userdata("session_id"))){ ?>
+        if($("#review_content").val().length>0){
+            var content=$("#review_content").val();
+            jQuery.ajax({
+                type:"POST",
+                url:"<?php echo base_url()?>index.php/event/postReview",
+                data:"content="+content+"&event_id="+<?php echo $event_id?>,
+                //Rating Code is remaining
+                success:function($data){
+                    console.log($data);
+                    if($data==true){
+                        $("#review_content").val("");
+                        $(".comment-list-panel").prepend('<div class="media"><a class="pull-left" href=""><img class="media-object img-circle comment-img" src="<?php echo base_url()."profile_pic/".$this->session->userdata("profile_pic")?>"></a><div class="media-body"><h4 class="media-heading"><?php echo $this->session->userdata("user_name")?></h4>'+content+'</div></div>');
+                    }
+                    else
+                        $( ".comment-alert" ).text("Unable to post comment...try later").show().fadeOut( 8000 );
+                }
+            });
+        }
+        else
+            $( ".comment-alert" ).text("Please provide some content").show().fadeOut( 8000 );
+        <?php }
+        else { ?>
+        $( ".comment-alert" ).text("Please login to comment").show().fadeOut( 8000 );
+        <?php } ?>
+    });
     <?php } ?>
+
+    /*Code for Event Review Ends Here*/
 
     $(".profile-form").submit(function(e){
         var email_pattern=/^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})$/i;

@@ -232,4 +232,20 @@ var $logged_in;
             redirect('login');
     }
 
+    function show_contactus()
+    {
+        if(!($this->session->userdata("session_name") && $this->session->userdata("session_id"))){// check if user is logged in or not from session
+            $logged_in="failure";
+            //check for
+            $data['title']="Rannathon";
+            $data['logged_in']=$logged_in;
+            $this->load->view('header',$data);
+            $this->load->view('contactus',$data);
+            $this->load->view("footer",$data);
+
+        }
+        else
+            redirect("home");
+    }
+
 }
