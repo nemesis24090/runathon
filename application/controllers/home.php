@@ -7,7 +7,7 @@
  */
 
 class Home extends CI_Controller{
-var $logged_in;
+var $logged_in="failure";
   function __construct() {
     parent::__construct();
     $this->load->model('retrive_data');
@@ -28,6 +28,7 @@ var $logged_in;
 
        $this->load->view('sidebar',$data);
        $this->load->view("footer",$data);
+       $this->load->view("home_footer",$data);
         }
         else
             redirect("login");
@@ -47,6 +48,7 @@ var $logged_in;
             $this->load->view('header',$data);
             $this->load->view('editProfile',$data);
             $this->load->view('footer',$data);
+
 
         }
         else{
@@ -234,18 +236,17 @@ var $logged_in;
 
     function show_contactus()
     {
-        if(!($this->session->userdata("session_name") && $this->session->userdata("session_id"))){// check if user is logged in or not from session
-            $logged_in="failure";
+        if(($this->session->userdata("session_name") && $this->session->userdata("session_id"))){// check if user is logged in or not from session
+            $this->logged_in="success";
+
+        }
             //check for
             $data['title']="Rannathon";
-            $data['logged_in']=$logged_in;
+            $data['logged_in']=$this->logged_in;
             $this->load->view('header',$data);
             $this->load->view('contactus',$data);
             $this->load->view("footer",$data);
 
-        }
-        else
-            redirect("home");
     }
 
 }

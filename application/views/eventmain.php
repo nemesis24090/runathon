@@ -1,4 +1,4 @@
-<div class="container" id="main">
+<div class="container container_edit" id="main">
     <div class="modal fade" id="loginModal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -148,8 +148,8 @@
                                 <div class="">
                                     <?php
                                     $event_id= $event_info->event_id?>
-                                    <form class="form-group">
-                                        <div class="alert alert-warning comment-alert" role="alert">
+                                    <div class="form-group">
+                                        <div class="alert alert-warning comment-alert"  role="alert">
                                         </div>
                                        <textarea type="text" id="review_content" style="width:100%;height:100px;" placeholder="ENTER YOUR COMMENT"></textarea><br/>
                                         <a><span class="glyphicon glyphicon-star-empty small"/></a>
@@ -158,7 +158,7 @@
                                         <a><span class="glyphicon glyphicon-star-empty"/></a>
                                         <a><span class="glyphicon glyphicon-star-empty "/></a>
                                     <button class="btn btn-danger pull-right" id="review_submitbtn" style="margin-top:1%;">SUBMIT</button>
-                                    </form>
+                                    </div>
                                 </div>
 
                                 <div class="panel-group comment-list-panel">

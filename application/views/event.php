@@ -1,4 +1,4 @@
-<div class="container" id="main">
+<div class="container container_edit" id="main">
     <div class="modal fade" id="loginModal">
         <div class="modal-dialog">
             <div class="modal-content">

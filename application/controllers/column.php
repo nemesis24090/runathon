@@ -43,6 +43,7 @@ var $logged_in="failure";
         $this->load->view('header',$data);
         $data['column_info']=$this->retrive_data->retriveColumn($column_id);
         $data['column_content']=file_get_contents("C:\\xampp\\htdocs\\runathon\\columns\\".$data['column_info']->row()->content);
+        //$data['column_content']=file_get_contents("/var/www/html/runathon/columns/".$data['column_info']->row()->content);
         $this->load->view('column_home',$data);
 
         $current_date=date("Y-m-d H:i:s");
@@ -53,6 +54,7 @@ var $logged_in="failure";
         $this->load->view("column_comment",$column_comment);
         $this->load->view('sidebar',$data);
         $this->load->view("footer",$data);
+        $this->load->view("column_footer",$data);
     }
 
     function postComment(/*$content,$column_id*/){

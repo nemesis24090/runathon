@@ -32,6 +32,7 @@ class Login extends CI_Controller{
 
             $this->load->view('sidebar',$data);
             $this->load->view("footer",$data);
+            $this->load->view("login_footer",$data);
         }
         else
             redirect("home");
@@ -70,6 +71,7 @@ class Login extends CI_Controller{
                         $this->load->view('header',$data);
                         $this->load->view('loginPage',$data);
                         $this->load->view('footer',$data);
+                        $this->load->view("login_footer",$data);
                     }
                 }
                 else{
@@ -82,6 +84,7 @@ class Login extends CI_Controller{
                     $this->load->view('header',$data);
                     $this->load->view('loginPage',$data);
                     $this->load->view('footer',$data);
+                    $this->load->view("login_footer",$data);
                 }
             }
             else
@@ -101,6 +104,8 @@ class Login extends CI_Controller{
             $this->load->view('header',$data);
             $this->load->view('signUp',$data);
             $this->load->view("footer",$data);
+            $this->load->view("login_footer",$data);
+
         }
         elseif(strlen(trim($_POST["fullname"]))==0){
             $data['alert']="Please check the required field";
@@ -110,6 +115,8 @@ class Login extends CI_Controller{
             $this->load->view('header',$data);
             $this->load->view('signUp',$data);
             $this->load->view("footer",$data);
+            $this->load->view("login_footer",$data);
+
         }
         elseif(strlen(trim($_POST["password"]))==0){
             //$password="Provide some password";
@@ -121,6 +128,8 @@ class Login extends CI_Controller{
             $this->load->view('header',$data);
             $this->load->view('signUp',$data);
             $this->load->view("footer",$data);
+            $this->load->view("login_footer",$data);
+
         }
 
         elseif(trim($_POST["password"]) != trim($_POST["confpass"])){
@@ -132,6 +141,8 @@ class Login extends CI_Controller{
             $this->load->view('header',$data);
             $this->load->view('signUp',$data);
             $this->load->view("footer",$data);
+            $this->load->view("login_footer",$data);
+
         }
 
         elseif($this->checkEmail(trim($_POST["email"]))){
@@ -142,6 +153,8 @@ class Login extends CI_Controller{
             $this->load->view('header',$data);
             $this->load->view('signUp',$data);
             $this->load->view("footer",$data);
+            $this->load->view("login_footer",$data);
+
         }
         else{
             $insert['user_id']=trim($_POST['email']);
@@ -155,6 +168,8 @@ class Login extends CI_Controller{
                 $this->load->view('header',$data);
                 $this->load->view('signUp',$data);
                 $this->load->view("footer",$data);
+                $this->load->view("login_footer",$data);
+
             }
             else{
                 $data['success']="Successfully registered...";
@@ -163,6 +178,8 @@ class Login extends CI_Controller{
                 $this->load->view('header',$data);
                 $this->load->view('signUp',$data);
                 $this->load->view("footer",$data);
+                $this->load->view("login_footer",$data);
+
             }
         }
     }
@@ -175,6 +192,7 @@ class Login extends CI_Controller{
         $this->load->view('header',$data);
         $this->load->view('signUp',$data);
         $this->load->view('footer',$data);
+        $this->load->view('signup_footer',$data);
     }
 
     public function emailCheck(){

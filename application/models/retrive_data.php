@@ -53,9 +53,9 @@ class Retrive_data extends CI_Model{
 
     return $query;
 }
-    function postReview($user_id,$content,$event_id,$time,$rating){
+    function postReview($user_id,$content,$event_id,$time){
 
-        $query=$this->db->query("insert into event_comment values (NULL ,'$user_id','$event_id','$time','$content', '$rating')");
+        $query=$this->db->query("insert into event_comment(comment_id,user_id,event_id,timestamp,content) values (NULL ,'$user_id','$event_id','$time','$content')");
 
         return $query;
     }
