@@ -174,7 +174,7 @@
                                     <img src="<?php echo $profile_pic ?>" class="img-circle pull-left comment-img"/>
                                     <div style="margin-top:2%"><a href="" > &nbsp;&nbsp;<?php echo $row->name?></a>
                                        <small class="pull-right"><?php echo $row->rating ?> / 5</small>
-                                        <br><small> &nbsp;&nbsp;<?php echo $row->timestamp ?></small></div><br>
+                                        <br><small> &nbsp;&nbsp;<span class="comment-timestamp" data-livestamp="<?php echo $row->timestamp?>"></span></small></div><br>
                                     <div class="panel-body">
                                      <p><?php echo $row->content ?></p>
                                         <div class="commentreleatedbuttons">

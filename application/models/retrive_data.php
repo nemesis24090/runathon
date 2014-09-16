@@ -29,7 +29,7 @@ class Retrive_data extends CI_Model{
     function retriveColumn($column_id){
         $query = $this->db->query("select cd.header,cd.timestamp,cd.content,ud.name,ud.user_id,ud.profilepic,(select sum(liked) from column_reviews where column_id='$column_id' group by column_id) as like_count
                                    from column_details cd inner join user_details ud on cd.user_id = ud.user_id
-                                   where cd.column_id='$column_id'");
+                                   where cd.column_id='$column_id' order by timestamp desc ");
 
         return $query;
     }

@@ -24,10 +24,10 @@
 
         <div class="nav-collapse navHeaderCollapse" id="navHeaderCollapse">
         <ul class="nav nav-pills navbar-right">
-                    <li ><a href="<?php echo base_url()?>index.php/login">Home</a></li>
-                    <li><a href="<?php echo base_url();?>index.php/event">Events</a></li>
-                    <li><a href="">Columns</a></li>
-                    <li><a href="<?php echo base_url();?>index.php/home/show_contactus">Contact Us</a></li>
+                    <li class="<?php echo $home?>"><a href="<?php echo base_url()?>index.php/login">Home</a></li>
+                    <li class="<?php echo $event?>"><a href="<?php echo base_url();?>index.php/event">Events</a></li>
+                    <li class="<?php echo $column?>"><a href="">Columns</a></li>
+                    <li class="<?php echo $contact?>"><a href="<?php echo base_url();?>index.php/home/show_contactus">Contact Us</a></li>
                     <?php if($logged_in=="failure"){?>
                     <li><a href="#loginModal" data-toggle="modal">Login</a></li>
                     <?php }

@@ -70,7 +70,7 @@
                         <span class="name_sign alert-danger"><?php if(isset($name))echo $name; ?></span><br>
                     Email : <input type="email" id="email" name="email" class="form-control" placeholder="Email id"/>
                         <span class="email_sign alert-danger"><?php if(isset($email))echo $email; ?></span><br>
-                    Password : <input type="password" id="pass" name="password" class="form-control" placeholder="Password"/>
+                    Password : <span class="pass-score"></span><input type="password" id="pass" name="password" class="form-control" placeholder="Password"/>
                         <span class="password_sign alert-danger"><?php if(isset($password))echo $password; ?></span><br>
                     Confirm Password : <input type="password" id="confpass" name="confpass" class="form-control" placeholder="Retype Password"/>
                         <span class="confpass_sign alert-danger"><?php if(isset($confpass))echo $confpass; ?></span><br>

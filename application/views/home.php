@@ -8,11 +8,10 @@
 
 <div class="container container_edit" id="main">
 
-
-<div class="carousel slide" id="myCarousel">
-    <!--Wrapper for slider-->
-    <img src="<?php echo base_url() ?>img/run.jpg">
-</div><!--end carousel -->
+    <div class="carousel slide" id="myCarousel">
+        <!--Wrapper for slider-->
+        <img src="<?php echo base_url() ?>img/run.jpg">
+    </div><!--end carousel -->
 
 <div class="row" id="bigCallout">
     <div class="col-lg-8" id="maincontent">

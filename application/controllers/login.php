@@ -23,6 +23,10 @@ class Login extends CI_Controller{
             //check for
             $data['title']="Rannathon";
             $data['logged_in']=$logged_in;
+            $data['column']="disable";
+            $data['event']="disable";
+            $data['home']="active";
+            $data['contact']="disable";
             $this->load->view('header',$data);
             $this->load->view('login_home',$data);
 
@@ -68,6 +72,10 @@ class Login extends CI_Controller{
                         $data['title']="Rannathon";
                         $data['login_failure']=true;
                         $data['message']="Invalid password";
+                        $data['column']="disable";
+                        $data['event']="disable";
+                        $data['home']="active";
+                        $data['contact']="disable";
                         $this->load->view('header',$data);
                         $this->load->view('loginPage',$data);
                         $this->load->view('footer',$data);
@@ -81,6 +89,10 @@ class Login extends CI_Controller{
                     $data['title']="Rannathon";
                     $data['message']="Invalid email id";
                     $data['login_failure']="true";
+                    $data['column']="disable";
+                    $data['event']="disable";
+                    $data['home']="active";
+                    $data['contact']="disable";
                     $this->load->view('header',$data);
                     $this->load->view('loginPage',$data);
                     $this->load->view('footer',$data);
@@ -101,6 +113,10 @@ class Login extends CI_Controller{
             $data['email']="Enter a Valid email";
             $data['title']="Rannathon";
             $data['logged_in']=$logged_in;
+            $data['column']="disable";
+            $data['event']="disable";
+            $data['home']="active";
+            $data['contact']="disable";
             $this->load->view('header',$data);
             $this->load->view('signUp',$data);
             $this->load->view("footer",$data);
@@ -112,6 +128,10 @@ class Login extends CI_Controller{
             $data['name']="Please provide ur name";
             $data['title']="Rannathon";
             $data['logged_in']=$logged_in;
+            $data['column']="disable";
+            $data['event']="disable";
+            $data['home']="active";
+            $data['contact']="disable";
             $this->load->view('header',$data);
             $this->load->view('signUp',$data);
             $this->load->view("footer",$data);
@@ -125,6 +145,10 @@ class Login extends CI_Controller{
             $data['password']="Provide some password";
             $data['title']="Rannathon";
             $data['logged_in']=$logged_in;
+            $data['column']="disable";
+            $data['event']="disable";
+            $data['home']="active";
+            $data['contact']="disable";
             $this->load->view('header',$data);
             $this->load->view('signUp',$data);
             $this->load->view("footer",$data);
@@ -138,6 +162,10 @@ class Login extends CI_Controller{
             $data['confpass']="Password dose not matches";
             $data['title']="Rannathon";
             $data['logged_in']=$logged_in;
+            $data['column']="disable";
+            $data['event']="disable";
+            $data['home']="active";
+            $data['contact']="disable";
             $this->load->view('header',$data);
             $this->load->view('signUp',$data);
             $this->load->view("footer",$data);
@@ -150,6 +178,10 @@ class Login extends CI_Controller{
             $data['email']="This email is already registered with us...";
             $data['title']="Rannathon";
             $data['logged_in']=$logged_in;
+            $data['column']="disable";
+            $data['event']="disable";
+            $data['home']="active";
+            $data['contact']="disable";
             $this->load->view('header',$data);
             $this->load->view('signUp',$data);
             $this->load->view("footer",$data);
@@ -165,6 +197,10 @@ class Login extends CI_Controller{
                 $data['alert']="Cannot connect databse please try later..";
                 $data['title']="Rannathon";
                 $data['logged_in']=$logged_in;
+                $data['column']="disable";
+                $data['event']="disable";
+                $data['home']="active";
+                $data['contact']="disable";
                 $this->load->view('header',$data);
                 $this->load->view('signUp',$data);
                 $this->load->view("footer",$data);
@@ -175,6 +211,10 @@ class Login extends CI_Controller{
                 $data['success']="Successfully registered...";
                 $data['title']="Rannathon";
                 $data['logged_in']=$logged_in;
+                $data['column']="disable";
+                $data['event']="disable";
+                $data['home']="active";
+                $data['contact']="disable";
                 $this->load->view('header',$data);
                 $this->load->view('signUp',$data);
                 $this->load->view("footer",$data);
@@ -189,6 +229,10 @@ class Login extends CI_Controller{
 
         $data['logged_in']=$logged_in;
         $data['title']="Rannathon";
+        $data['column']="disable";
+        $data['event']="disable";
+        $data['home']="active";
+        $data['contact']="disable";
         $this->load->view('header',$data);
         $this->load->view('signUp',$data);
         $this->load->view('footer',$data);

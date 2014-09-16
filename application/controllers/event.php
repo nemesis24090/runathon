@@ -16,7 +16,10 @@ class Event extends CI_Controller {
 
         }
             //check for
-
+            $data['column']="disable";
+            $data['event']="active";
+            $data['home']="disable";
+            $data['contact']="disable";
             $data['title']="Rannathon";
             $data['logged_in']=$this->logged_in;
             $current_date=date("Y-m-d H:i:s");
@@ -38,18 +41,23 @@ class Event extends CI_Controller {
 
         }
             //check for
+            $data['column']="disable";
+            $data['event']="active";
+            $data['home']="disable";
+            $data['contact']="disable";
             $data['title']="Rannathon";
             $data['logged_in']=$this->logged_in;
             $current_date=date("Y-m-d H:i:s");
+
             $data['event_info']=$this->retrive_data->getEventInfo($event_id);
+
             $data['event_content']=file_get_contents("C:\\xampp\\htdocs\\runathon\\events\\".$data['event_info']->content_filename);
+
             //$data['event_content']=file_get_contents("/var/www/html/runathon/events/".$data['event_info']->content_filename);
             $data['reviews_info']=$this->retrive_data->getEventReviews($event_id);
             $data['event_id']=$event_id;
             $this->load->view('header',$data);
             $this->load->view('eventmain',$data);
-
-
             $data['upcoming_events']=$this->retrive_data->upcomingEvents($current_date);
             $data['famous_columns']=$this->retrive_data->famousColumns();
             $this->load->view('sidebar',$data);

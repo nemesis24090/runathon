@@ -1,7 +1,7 @@
 /**
  * Created by root on 15/9/14.
  */
-
+$("#pass").keyup(function(a){var b=passwordScore($("#pass").val());console.log(b);if(b>60&&b<=100){$(".pass-score").css("color","green");$(".pass-score").text("strong")}else{if(b>40&&b<60){$(".pass-score").css("color","blue");$(".pass-score").text("good")}else{if(b>20&&b<=40){$(".pass-score").css("color","#CCCC00");$(".pass-score").text("weak")}else{$(".pass-score").css("color","red");$(".pass-score").text("poor")}}}});
 
 $("#email").blur(function(e){
     if($("#email").val() != ""){
@@ -34,8 +34,8 @@ $(".sign_form").submit(function(e){
         e.preventDefault();
     }
 
-    else if($("#pass").val().trim().length==0){
-        $(".password_sign").text("Please Provide a password").show().fadeOut( 10000 );
+    else if($("#pass").val().trim().length==0 || passwordScore($("#pass").val())<20){
+        $(".password_sign").text("Please Provide a better password").show().fadeOut( 10000 );
         e.preventDefault();
     }
 

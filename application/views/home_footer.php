@@ -10,11 +10,14 @@
 <script type="text/javascript" src="<?php echo base_url()?>js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>js/myscript.js"></script>
-
+<script type="text/javascript" src="<?php echo base_url()?>js/jquery.bxslider.js"></script>
+<link href="<?php echo base_url()?>css/jquery.bxslider.css" rel="stylesheet" />
 
 <script type="text/javascript">
     var base_url="<?php echo base_url() ?>";
 </script>
+
+<script type="text/javascript" src="<?php echo base_url()?>js/home.js"></script>
 
 </body>
 

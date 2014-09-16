@@ -19,6 +19,7 @@
         </a>
         <div class="media-body">
             <h4 class="media-heading"><?php echo $row->name ?></h4>
+            <small><span class="comment-timestamp" data-livestamp="<?php echo $row->timestamp?>"></span></small><br>
             <?php echo $row->content ?>
         </div>
     </div><?php

@@ -37,6 +37,10 @@ var $logged_in="failure";
             else
                 $data['like']=false;
         }
+        $data['column']="active";
+        $data['event']="disable";
+        $data['home']="disable";
+        $data['contact']="disable";
         $data['column_id']=$column_id;
         $data['title']="Rannathon";
         $data['logged_in']=$this->logged_in;
